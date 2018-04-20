@@ -1,0 +1,35 @@
+<!-- container for everything -->
+
+<div class="container">
+
+  <h3>Add A description here</h3>
+
+  <!-- Form with a novalidate which check if the form is actually valid -->
+
+  <form novalidate>
+
+    <!-- form-group Styling from bootstrap -->
+
+    <div class="form-group">
+
+<!-- Label -->
+
+      <label for="Description">Description</label>
+
+      <!-- textarea Two Way Data Binding using the NgModule  -->
+
+      <textarea name="description" rows="8" cols="80" [(ngModel)]= "newDescription.description" class="form-control" #userDescription="ngModel" required placeholder="Type Here!"></textarea>
+
+      <!-- Div class for our alert which has an if Statement -->
+
+      <div class="alert alert-danger" *ngIf="userDescription.errors?.required && userDescription.touched" > Please enter a description of what you did today</div>
+
+    </div>
+
+    <!-- Submit button which has a click event that calls the onSubmit2 function -->
+
+    <input type="submit" name="submit" class="btn btn-info" (click)="onClick()">
+
+</form>
+
+</div>

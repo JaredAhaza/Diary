@@ -1,0 +1,66 @@
+<!-- Container for everything -->
+<div class="container">
+
+  <h1 class="text-center">Diary Webpage</h1>
+
+  <h1 class="text-center">Lets create a new Diary entry</h1>
+
+  <form novalidate>
+
+    <!-- name input form -->
+
+    <div class="form-group">
+
+      <label for="Name">Name</label>
+
+      <input type="text" name="name" [(ngModel)]="newDetail.name" class="form-control" #userName="ngModel" required placeholder="Enter your name">
+
+      <div class="alert alert-danger" *ngIf="userName.errors?.required && userName.touched" > Please enter a name</div>
+
+    </div>
+
+    <!-- Email input form -->
+
+    <div class="form-group">
+
+      <label for="Name">Email</label>
+
+      <input type="text" name="email" [(ngModel)]="newDetail.email" class="form-control" #userEmail="ngModel" required placeholder="Enter your Email">
+
+      <div class="alert alert-danger" *ngIf="userEmail.errors?.required && userEmail.touched" > Please enter an Email</div>
+
+    </div>
+
+    <!-- Submit Form -->
+
+    <input type="submit" name="submit" class="btn btn-info" value="submit" (click)= "onSubmit()">
+
+  </form>
+
+  <!-- Div for showing the rest of the information like the input entry for the info and the date -->
+
+  <div *ngIf="value">
+
+    <!-- Displaying of the name and the email -->
+
+    <h1 class="text-center">Hello {{ newDetail.name }}</h1>
+
+    <h2 class="text-center">With the email {{ newDetail.email }}</h2>
+
+    <!-- End of the display -->
+
+    <!-- Just some info -->
+
+    <h3 class="text-center">This is your personal Diary</h3>
+
+    <h3 class="text-center"><em>Let's Get Started on this thing !</em></h3>
+
+    <!-- End of the info -->
+
+    <!-- Component for the Title and Date-->
+
+    <app-info></app-info>
+
+  </div>
+
+</div>
